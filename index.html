@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JEE Revolution | Strategic Mentorship</title>
     
-    <!-- Google Fonts: Playfair Display (Serif) for Authority, Inter (Sans) for Readability -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Custom Tailwind Configuration for Premium Aesthetic -->
+    <!-- Custom Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -36,55 +36,76 @@
         }
     </script>
 </head>
-<body class="font-sans text-brand-charcoal antialiased bg-brand-light">
+<body class="font-sans text-brand-charcoal antialiased bg-brand-light overflow-x-hidden">
 
     <!-- Transparent Navigation Bar -->
     <nav class="absolute w-full z-50 top-0 border-b border-white/20">
-        <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-            <div class="text-2xl font-serif font-bold text-white tracking-wide">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide z-50">
                 JEE Revolution<span class="text-brand-gold">.</span>
             </div>
+            
+            <!-- Desktop Links -->
             <div class="hidden md:flex space-x-10 font-medium text-white/90 text-sm tracking-wide">
                 <a href="#expertise" class="hover:text-brand-gold transition duration-300">Our Expertise</a>
                 <a href="#approach" class="hover:text-brand-gold transition duration-300">The Approach</a>
                 <a href="#mentors" class="hover:text-brand-gold transition duration-300">Mentors</a>
             </div>
-            <div>
-                <a href="#contact" class="border border-brand-gold text-brand-gold px-6 py-2.5 hover:bg-brand-gold hover:text-white transition duration-300 text-sm font-semibold uppercase tracking-wider">
+            
+            <!-- Desktop CTA & Mobile Toggle -->
+            <div class="flex items-center space-x-4 z-50">
+                <a href="#contact" class="hidden md:block border border-brand-gold text-brand-gold px-6 py-2.5 hover:bg-brand-gold hover:text-white transition duration-300 text-sm font-semibold uppercase tracking-wider">
                     Engage Us
                 </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-brand-gold focus:outline-none p-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Menu Overlay (Hidden by default) -->
+        <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-brand-navy z-40 flex flex-col items-center justify-center space-y-8 pt-16">
+            <a href="#expertise" class="mobile-link text-white text-2xl font-serif hover:text-brand-gold transition">Our Expertise</a>
+            <a href="#approach" class="mobile-link text-white text-2xl font-serif hover:text-brand-gold transition">The Approach</a>
+            <a href="#mentors" class="mobile-link text-white text-2xl font-serif hover:text-brand-gold transition">Mentors</a>
+            <a href="#contact" class="mobile-link mt-8 border border-brand-gold bg-brand-gold text-white px-8 py-3 text-lg font-semibold uppercase tracking-wider">
+                Engage Us
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section (Full Screen with Background Image) -->
-    <!-- INSTRUCTION: Replace the URL below with the link or local path to your high-quality image -->
+    <!-- Hero Section -->
     <header class="relative h-screen min-h-[600px] flex items-center">
         <!-- Background Image & Overlay -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80" 
                  alt="Students studying collaboratively" 
                  class="w-full h-full object-cover object-center" />
-            <!-- Deep Navy Gradient Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-gradient-to-r from-brand-navy/95 via-brand-navy/80 to-transparent"></div>
         </div>
 
         <!-- Hero Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-20">
             <div class="max-w-2xl">
-                <div class="flex items-center space-x-4 mb-6">
-                    <div class="w-12 h-px bg-brand-gold"></div>
-                    <span class="text-brand-gold font-semibold tracking-widest uppercase text-sm">Strategic Advisory</span>
+                <div class="flex items-center space-x-4 mb-4 sm:mb-6">
+                    <div class="w-8 sm:w-12 h-px bg-brand-gold"></div>
+                    <span class="text-brand-gold font-semibold tracking-widest uppercase text-xs sm:text-sm">Strategic Advisory</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-serif font-bold text-white leading-tight mb-8">
+                <!-- Scaled down text for mobile (text-4xl), massive for desktop (md:text-7xl) -->
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white leading-tight mb-6 sm:mb-8">
                     Master the JEE. <br />
                     <span class="italic font-light text-white/90">Don't just survive it.</span>
                 </h1>
-                <p class="text-lg text-white/80 mb-10 leading-relaxed font-light">
+                <p class="text-base sm:text-lg text-white/80 mb-8 sm:mb-10 leading-relaxed font-light">
                     Generic coaching centers teach you the syllabus. We teach you how to conquer the exam. Secure your engineering future through elite, 1-on-1 strategic mentorship.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-5">
-                    <a href="#contact" class="bg-brand-gold text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider hover:bg-brand-goldHover transition duration-300 text-center">
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-5">
+                    <a href="#contact" class="bg-brand-gold text-white px-6 sm:px-8 py-3 sm:py-4 text-sm font-semibold uppercase tracking-wider hover:bg-brand-goldHover transition duration-300 text-center">
                         Schedule a Consultation
                     </a>
                 </div>
@@ -92,53 +113,53 @@
         </div>
     </header>
 
-    <!-- The Approach (Editorial Style About Section) -->
-    <section id="approach" class="py-24 px-6 bg-white">
+    <!-- The Approach -->
+    <section id="approach" class="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-12 gap-16">
-                <!-- Left Column: Sticky Header -->
+            <div class="grid md:grid-cols-12 gap-10 md:gap-16">
+                <!-- Left Column -->
                 <div class="md:col-span-5">
                     <div class="sticky top-24">
-                        <h2 class="text-4xl font-serif font-bold text-brand-navy leading-tight mb-6">
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-navy leading-tight mb-4 sm:mb-6">
                             The Traditional Coaching System is Broken.
                         </h2>
-                        <p class="text-lg text-gray-500 font-serif italic">
+                        <p class="text-base sm:text-lg text-gray-500 font-serif italic">
                             Raw effort without a clear strategy is a recipe for burnout.
                         </p>
                     </div>
                 </div>
                 
-                <!-- Right Column: Editorial Text -->
-                <div class="md:col-span-7 prose prose-lg text-gray-600">
+                <!-- Right Column -->
+                <div class="md:col-span-7 prose prose-base sm:prose-lg text-gray-600">
                     <p class="mb-6">
                         Every year, millions of engineering aspirants study the exact same textbooks, sit through the exact same mass lectures, and put in endless hours of hard work. Yet, only a tiny fraction actually secure a top rank.
                     </p>
-                    <p class="mb-10">
+                    <p class="mb-8 sm:mb-10">
                         At JEE Revolution, we realized that mastering the syllabus isn't enough—you need to master the exam itself. Traditional institutes treat students like numbers on a spreadsheet, offering a one-size-fits-all approach that leaves aspirants overwhelmed and anxious. We built this firm to provide the exact opposite.
                     </p>
 
                     <!-- Feature List / Pillars -->
-                    <div class="space-y-10 mt-12">
+                    <div class="space-y-8 sm:space-y-10 mt-10 sm:mt-12">
                         <!-- Pillar 1 -->
-                        <div class="border-l-4 border-brand-gold pl-6">
-                            <h3 class="text-xl font-serif font-bold text-brand-navy mb-2">Bespoke Strategic Roadmaps</h3>
-                            <p class="text-base leading-relaxed">
+                        <div class="border-l-4 border-brand-gold pl-4 sm:pl-6">
+                            <h3 class="text-lg sm:text-xl font-serif font-bold text-brand-navy mb-2">Bespoke Strategic Roadmaps</h3>
+                            <p class="text-sm sm:text-base leading-relaxed">
                                 You are not a generic student; your preparation shouldn't be either. We build dynamic study architectures tailored to your specific target percentiles and current analytical weak points.
                             </p>
                         </div>
                         
                         <!-- Pillar 2 -->
-                        <div class="border-l-4 border-brand-gold pl-6">
-                            <h3 class="text-xl font-serif font-bold text-brand-navy mb-2">Elite Mentorship</h3>
-                            <p class="text-base leading-relaxed">
+                        <div class="border-l-4 border-brand-gold pl-4 sm:pl-6">
+                            <h3 class="text-lg sm:text-xl font-serif font-bold text-brand-navy mb-2">Elite Mentorship</h3>
+                            <p class="text-sm sm:text-base leading-relaxed">
                                 Work directly with strategy mentors who have successfully navigated the JEE at the highest levels. They provide actionable insights, advanced time-management protocols, and real-time course correction.
                             </p>
                         </div>
 
                         <!-- Pillar 3 -->
-                        <div class="border-l-4 border-brand-gold pl-6">
-                            <h3 class="text-xl font-serif font-bold text-brand-navy mb-2">Data-Driven Execution</h3>
-                            <p class="text-base leading-relaxed">
+                        <div class="border-l-4 border-brand-gold pl-4 sm:pl-6">
+                            <h3 class="text-lg sm:text-xl font-serif font-bold text-brand-navy mb-2">Data-Driven Execution</h3>
+                            <p class="text-sm sm:text-base leading-relaxed">
                                 Strategy requires iteration. As you execute mock assessments, your mentor will constantly pivot your framework to ensure maximum yield on your study hours.
                             </p>
                         </div>
@@ -148,18 +169,44 @@
         </div>
     </section>
 
-    <!-- Minimalist Footer -->
-    <footer class="bg-brand-navy py-16 text-center text-white/50 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-2xl font-serif font-bold text-white mb-4">
+    <!-- Footer -->
+    <footer class="bg-brand-navy py-12 sm:py-16 text-center text-white/50 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-xl sm:text-2xl font-serif font-bold text-white mb-4">
                 JEE Revolution<span class="text-brand-gold">.</span>
             </div>
-            <p class="mb-8 font-light tracking-wide text-sm">STRATEGY FIRST. RANKS FOLLOW.</p>
-            <div class="text-xs tracking-wider uppercase">
+            <p class="mb-6 sm:mb-8 font-light tracking-wide text-xs sm:text-sm">STRATEGY FIRST. RANKS FOLLOW.</p>
+            <div class="text-[10px] sm:text-xs tracking-wider uppercase">
                 &copy; 2026 JEE Revolution Advisory. All rights reserved.
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+        const links = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Toggle between Hamburger and 'X' close icon
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+
+        // Close menu when a link is clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+    </script>
 
 </body>
 </html>
